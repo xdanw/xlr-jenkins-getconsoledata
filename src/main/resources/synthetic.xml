@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2019 XEBIALABS
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-->
+
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.xebialabs.com/deployit/synthetic"
+           xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+  <type type="jenkins.ConsoleOutFindString" extends="xlrelease.PythonScript" >
+    <property name="scriptLocation" default="getjenkinsdata/FindString.py" hidden="true"/>
+    <property name="server" category="Server" required="true" referenced-type="jenkins.Server" kind="ci" description="Jenkins server"/>
+    <property name="username" category="Server" category="input" required="false" description="Overrides the password used to connect to the server"/>
+    <property name="password" category="Server" password="true" category="input" required="false" description="Overrides the password used to connect to the server"/>
+    <property name="jobPath" category="Build" required="true" kind="string" description="URL to job, including /job/, but not including server name or /consoleText" category="input" />
+    <property name="buildNumber" category="Build" required="true" kind="string" description="Jenkins build number" category="input" />
+    <property name="leftSearch" category="Search" kind="string" description="Characters to match on the left" category="input" />
+    <property name="rightSearch" category="Search" kind="string" description="Characters to match on the right (can be blank)" category="input" />
+    <!-- output variables -->
+    <property name="searchResult" kind="string" description="Veracode build ID" category="output" />
+  </type>
+
+
+</synthetic>
+
