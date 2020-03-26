@@ -17,15 +17,15 @@
 
   <type type="jenkins.ConsoleOutFindString" extends="xlrelease.PythonScript" >
     <property name="scriptLocation" default="getjenkinsdata/FindString.py" hidden="true"/>
-    <property name="server" category="Server" required="true" referenced-type="jenkins.Server" kind="ci" description="Jenkins server"/>
-    <property name="username" category="Server" category="input" required="false" description="Overrides the password used to connect to the server"/>
-    <property name="password" category="Server" password="true" category="input" required="false" description="Overrides the password used to connect to the server"/>
-    <property name="jobPath" category="Build" required="true" kind="string" description="URL to job, including /job/, but not including server name or /consoleText" category="input" />
-    <property name="buildNumber" category="Build" required="true" kind="string" description="Jenkins build number" category="input" />
-    <property name="leftSearch" category="Search" kind="string" description="Characters to match on the left" category="input" />
-    <property name="rightSearch" category="Search" kind="string" description="Characters to match on the right (can be blank)" category="input" />
+    <property name="server" category="input" required="true" referenced-type="jenkins.Server" kind="ci" description="Jenkins server"/>
+    <property name="username" category="input" required="false" description="Overrides the password used to connect to the server"/>
+    <property name="password" category="input" password="true" required="false" description="Overrides the password used to connect to the server"/>
+    <property name="jobPath" category="input" required="true" kind="string" description="URL to job, including /job/, but not including server name or /consoleText" />
+    <property name="buildNumber" category="input" required="true" kind="string" description="Jenkins build number" />
+    <property name="leftSearch" category="input" required="false" kind="string" description="Characters to match on the left" />
+    <property name="rightSearch" category="input" required="false" kind="string" description="Characters to match on the right (can be blank)" />
     <!-- output variables -->
-    <property name="searchResult" kind="string" description="Veracode build ID" category="output" />
+    <property name="searchResult" kind="string" description="Result" category="output" />
   </type>
 
 

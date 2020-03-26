@@ -8,6 +8,19 @@
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+try: 
+    len(leftSearch) 
+except:    # catch if leftSearch is NoneType or undefined
+    print '(leftSearch is empty)\r\n'
+    leftSearch = ''
+
+try: 
+    len(rightSearch)
+except:    # catch if rightSearch is NoneType or undefined
+    print '(rightSearch is empty)\r\n'
+    rightSearch = ''
+
+
 if leftSearch == '' and rightSearch == '':
     print "At least one search parameter (left or right) must be specified."
     sys.exit(1);
@@ -33,29 +46,29 @@ r_lines = str.splitlines(str(response.response))  # response.response returns un
 
 foundResults = False;
 
-if leftSearch = '' : 
+if rightSearch == '' : 
     for l in r_lines : 
         if l.find(leftSearch) > -1: 
-            result = str(l[ l.find(leftSearch) + len(leftSearch) : ])
-            print "Found: ''" + str(result) + "'\r\n";
+            searchResult = str(l[ l.find(leftSearch) + len(leftSearch) : ])
+            print "Found: ''" + str(searchResult) + "'\r\n";
             foundResults = True;
-elif rightSearch = '' : 
+elif leftSearch == '' : 
     for l in r_lines : 
         if l.rfind(rightSearch) > -1: 
-            result = str(l[ : l.rfind(rightSearch) ])
-            print "Found: '" + str(result) + "'\r\n";
+            searchResult = str(l[ : l.rfind(rightSearch) ])
+            print "Found: '" + str(searchResult) + "'\r\n";
             foundResults = True;
 else : 
     for l in r_lines : 
        if l.find(leftSearch) > -1 and l.rfind(rightSearch) > -1 : 
-           result = int(l[l[ l.find(leftSearch) + len(leftSearch) : l.rfind(rightSearch)])
-           print "Found: '" + str(result) + "'\r\n";
+           searchResult = str(l[ l.find(leftSearch) + len(leftSearch) : l.rfind(rightSearch)])
+           print "Found: '" + str(searchResult) + "'\r\n";
            foundResults = True;
 
 # We use a boolean flag instead of checking if result = '' to be precise 
 # because it's possible that the search will successfully find an empty result, e.g. IPADDRESS=''
 
-if foundResults = False : 
+if foundResults == False : 
     print 'No results were found.';
     
 
